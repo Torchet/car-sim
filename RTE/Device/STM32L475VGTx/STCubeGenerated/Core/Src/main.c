@@ -41,16 +41,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-DFSDM_Channel_HandleTypeDef hdfsdm1_channel1;
 
-I2C_HandleTypeDef hi2c2;
 
-QSPI_HandleTypeDef hqspi;
-
-SPI_HandleTypeDef hspi3;
-
-UART_HandleTypeDef huart1;
-UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 
@@ -233,7 +225,7 @@ static void MX_DFSDM1_Init(void)
   /* USER CODE END DFSDM1_Init 0 */
 
   /* USER CODE BEGIN DFSDM1_Init 1 */
-
+	static DFSDM_Channel_HandleTypeDef hdfsdm1_channel1;
   /* USER CODE END DFSDM1_Init 1 */
   hdfsdm1_channel1.Instance = DFSDM1_Channel1;
   hdfsdm1_channel1.Init.OutputClock.Activation = ENABLE;
@@ -271,8 +263,9 @@ static void MX_I2C2_Init(void)
   /* USER CODE END I2C2_Init 0 */
 
   /* USER CODE BEGIN I2C2_Init 1 */
-
+	static I2C_HandleTypeDef hi2c2;
   /* USER CODE END I2C2_Init 1 */
+
   hi2c2.Instance = I2C2;
   hi2c2.Init.Timing = 0x00000E14;
   hi2c2.Init.OwnAddress1 = 0;
@@ -319,9 +312,10 @@ static void MX_QUADSPI_Init(void)
   /* USER CODE END QUADSPI_Init 0 */
 
   /* USER CODE BEGIN QUADSPI_Init 1 */
-
+	static QSPI_HandleTypeDef hqspi;
   /* USER CODE END QUADSPI_Init 1 */
   /* QUADSPI parameter configuration*/
+
   hqspi.Instance = QUADSPI;
   hqspi.Init.ClockPrescaler = 2;
   hqspi.Init.FifoThreshold = 4;
@@ -352,9 +346,10 @@ static void MX_SPI3_Init(void)
   /* USER CODE END SPI3_Init 0 */
 
   /* USER CODE BEGIN SPI3_Init 1 */
-
+	static SPI_HandleTypeDef hspi3;
   /* USER CODE END SPI3_Init 1 */
   /* SPI3 parameter configuration*/
+
   hspi3.Instance = SPI3;
   hspi3.Init.Mode = SPI_MODE_MASTER;
   hspi3.Init.Direction = SPI_DIRECTION_2LINES;
@@ -392,8 +387,9 @@ static void MX_USART1_UART_Init(void)
   /* USER CODE END USART1_Init 0 */
 
   /* USER CODE BEGIN USART1_Init 1 */
-
+	static UART_HandleTypeDef huart1;
   /* USER CODE END USART1_Init 1 */
+
   huart1.Instance = USART1;
   huart1.Init.BaudRate = 115200;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
@@ -427,7 +423,7 @@ static void MX_USART3_UART_Init(void)
   /* USER CODE END USART3_Init 0 */
 
   /* USER CODE BEGIN USART3_Init 1 */
-
+	static UART_HandleTypeDef huart3;
   /* USER CODE END USART3_Init 1 */
   huart3.Instance = USART3;
   huart3.Init.BaudRate = 115200;
