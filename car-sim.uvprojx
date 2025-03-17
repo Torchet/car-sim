@@ -383,13 +383,6 @@
       <Groups>
         <Group>
           <GroupName>App</GroupName>
-          <Files>
-            <File>
-              <FileName>misra.json</FileName>
-              <FileType>7</FileType>
-              <FilePath>..\..\RobDevMeth_1\Example-Suite\misra.json</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>:STM32CubeMX:Common Sources</GroupName>
