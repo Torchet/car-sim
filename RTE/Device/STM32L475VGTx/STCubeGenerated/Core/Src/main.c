@@ -49,7 +49,7 @@
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config(void);
+static void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DFSDM1_Init(void);
 static void MX_I2C2_Init(void);
@@ -87,7 +87,7 @@ __NO_RETURN static void thrLED (void *arg) {
 /*---------------------------------------------------------------------------
  * Application initialization
  *---------------------------------------------------------------------------*/
-void app_initialize (void) {
+static void app_initialize (void) {
   osThreadId_t tid_thrLED = osThreadNew(thrLED, NULL, NULL);
     if (tid_thrLED == NULL) { 
       Error_Handler();
@@ -654,7 +654,7 @@ static void MX_GPIO_Init(void)
   * @brief  This function is executed in case of error occurrence.
   * @retval None
   */
-void Error_Handler(void)
+static void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
@@ -673,9 +673,13 @@ void Error_Handler(void)
   * @param  line: assert_param error line source number
   * @retval None
   */
-void assert_failed(uint8_t *file, uint32_t line)
+static void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
+	int len_verif = 0;
+
+	len_verif = printf("Wrong parameters value: file %s on line %d\r\n", file, line);
+	
   /* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
